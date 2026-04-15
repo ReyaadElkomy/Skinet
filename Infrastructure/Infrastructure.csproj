@@ -13,6 +13,7 @@
     <Folder Include="Data\" />
     <Folder Include="Data\SeedData\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Specifications\" />
   </ItemGroup>
 
   <PropertyGroup>

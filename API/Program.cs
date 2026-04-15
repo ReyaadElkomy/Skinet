@@ -16,6 +16,8 @@ builder.Services.AddDbContext<StoreDbContext>(options =>
 
 // builder.Services.AddScoped<StoreDbContext>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -36,10 +38,10 @@ app.MapControllers();
 
 try
 {
-    using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
-    await context.Database.MigrateAsync();
-    await StoreContextSeed.SeedAsync(context);
+    //using var scope = app.Services.CreateScope();
+    //var context = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
+    //await context.Database.MigrateAsync();
+    //await StoreContextSeed.SeedAsync(context);
 }
 catch (Exception ex)
 {
